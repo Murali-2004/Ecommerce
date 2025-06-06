@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopEase - Your Online Store</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Montserrat', Arial, sans-serif;
+            background: #f7f7f7;
+            color: #222;
+        }
+
+        header {
+            background: #222;
+            color: #fff;
+            padding: 20px 0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 30px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: #ff6f61;
+        }
+
+        .hero {
+            background: linear-gradient(90deg, #ff6f61 60%, #fff 100%);
+            color: #fff;
+            padding: 60px 0 40px 0;
+            text-align: left;
+        }
+
+        .hero-content {
+            max-width: 600px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        .hero button {
+            background: #fff;
+            color: #ff6f61;
+            border: none;
+            padding: 15px 35px;
+            font-size: 1rem;
+            border-radius: 30px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .hero button:hover {
+            background: #ff6f61;
+            color: #fff;
+            border: 2px solid #fff;
+        }
+
+        .categories {
+            display: flex;
+            justify-content: space-between;
+            margin: 40px 0 20px 0;
+            gap: 20px;
+        }
+
+        .category-card {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+            flex: 1;
+            text-align: center;
+            padding: 30px 10px;
+            transition: transform 0.2s;
+            cursor: pointer;
+        }
+
+        .category-card:hover {
+            transform: translateY(-8px) scale(1.03);
+            box-shadow: 0 6px 20px rgba(255, 111, 97, 0.15);
+        }
+
+        .category-card img {
+            width: 60px;
+            margin-bottom: 15px;
+        }
+
+        .category-card h3 {
+            margin: 0;
+            font-size: 1.1rem;
+            color: #ff6f61;
+        }
+
+        .products-section {
+            margin: 40px 0;
+        }
+
+        .products-title {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #222;
+            text-align: center;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 25px;
+        }
+
+        .product-card {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+            padding: 20px;
+            text-align: center;
+            transition: box-shadow 0.2s, transform 0.2s;
+        }
+
+        .product-card:hover {
+            box-shadow: 0 6px 20px rgba(255, 111, 97, 0.15);
+            transform: translateY(-6px) scale(1.02);
+        }
+
+        .product-card img {
+            width: 100%;
+            max-width: 180px;
+            height: 180px;
+            object-fit: contain;
+            margin-bottom: 15px;
+        }
+
+        .product-card h4 {
+            margin: 10px 0 5px 0;
+            font-size: 1.1rem;
+        }
+
+        .product-card p {
+            color: #888;
+            font-size: 0.95rem;
+            margin-bottom: 10px;
+        }
+
+        .product-card .price {
+            color: #ff6f61;
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .product-card button {
+            background: #ff6f61;
+            color: #fff;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 20px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .product-card button:hover {
+            background: #222;
+        }
+
+        .newsletter {
+            background: #ff6f61;
+            color: #fff;
+            padding: 40px 0;
+            text-align: center;
+            border-radius: 12px;
+            margin: 40px 0;
+        }
+
+        .newsletter h2 {
+            margin-bottom: 15px;
+        }
+
+        .newsletter input[type="email"] {
+            padding: 12px 20px;
+            border-radius: 20px;
+            border: none;
+            margin-right: 10px;
+            width: 250px;
+            max-width: 80vw;
+        }
+
+        .newsletter button {
+            padding: 12px 30px;
+            border-radius: 20px;
+            border: none;
+            background: #222;
+            color: #fff;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .newsletter button:hover {
+            background: #fff;
+            color: #ff6f61;
+        }
+
+        footer {
+            background: #222;
+            color: #fff;
+            padding: 30px 0;
+            text-align: center;
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 900px) {
+            .categories {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .products-title {
+                font-size: 1.3rem;
+            }
+
+            .container {
+                width: 98%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">ShopEase</div>
+                <div class="nav-links">
+                    <a href="#">Home</a>
+                    <a href="#">Shop</a>
+                    <a href="#">Categories</a>
+                    <a href="#">Deals</a>
+                    <a href="#">Contact</a>
+                    <a href="#">Cart 🛒</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>Discover the Best Deals on Top Products</h1>
+            <p>ShopEase brings you the latest trends in fashion, electronics, home essentials, and more. Enjoy fast
+                delivery and secure checkout!</p>
+            <button>Shop Now</button>
+        </div>
+    </section>
+    <div class="container">
+        <section class="categories">
+            <div class="category-card">
+                <a href="fashion.html">
+                    <img src="https://img.icons8.com/color/96/000000/t-shirt.png" alt="Fashion">
+                </a></a>
+                <h3>Fashion</h3>
+            </div>
+            <div class="category-card">
+                <img src="https://img.icons8.com/color/96/000000/laptop.png" alt="Electronics">
+                <h3>Electronics</h3>
+            </div>
+            <div class="category-card">
+                <img src="https://img.icons8.com/color/96/000000/sofa.png" alt="Home">
+                <h3>Home & Living</h3>
+            </div>
+            <div class="category-card">
+                <img src="https://img.icons8.com/color/96/000000/shopping-basket.png" alt="Groceries">
+                <h3>Groceries</h3>
+            </div>
+        </section>
+        <section class="products-section">
+            <div class="products-title">Featured Products</div>
+            <div class="products-grid">
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=400&q=80"
+                        alt="Product 1">
+                    <h4>Men's Casual Shirt</h4>
+                    <p>Comfortable and stylish for everyday wear.</p>
+                    <div class="price">$29.99</div>
+                    <button>Add to Cart</button>
+                </div>
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=400&q=80"
+                        alt="Product 2">
+                    <h4>Wireless Headphones</h4>
+                    <p>High-quality sound with noise cancellation.</p>
+                    <div class="price">$89.99</div>
+                    <button>Add to Cart</button>
+                </div>
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80"
+                        alt="Product 3">
+                    <h4>Modern Sofa</h4>
+                    <p>Elegant design for your living room.</p>
+                    <div class="price">$399.99</div>
+                    <button>Add to Cart</button>
+                </div>
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80"
+                        alt="Product 4">
+                    <h4>Organic Apples (1kg)</h4>
+                    <p>Fresh and juicy organic apples.</p>
+                    <div class="price">$4.99</div>
+                    <button>Add to Cart</button>
+                </div>
+            </div>
+        </section>
+        <section class="newsletter">
+            <h2>Subscribe to our Newsletter</h2>
+            <p>Get exclusive offers and updates straight to your inbox.</p>
+            <form>
+                <input type="email" placeholder="Enter your email" required>
+                <button type="submit">Subscribe</button>
+            </form>
+        </section>
+    </div>
+    <footer>
+        <div class="container">
+            &copy; 2024 ShopEase. All rights reserved. | Designed by ShopEase Team
+        </div>
+    </footer>
+    <script>
+        // Smooth scroll for navigation links
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href.startsWith('#')) {
+                    e.preventDefault();
+                    document.querySelector(href).scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Animate hero section on load
+        window.addEventListener('DOMContentLoaded', () => {
+            const hero = document.querySelector('.hero-content');
+            hero.style.opacity = 0;
+            hero.style.transform = 'translateY(40px)';
+            setTimeout(() => {
+                hero.style.transition = 'all 0.8s cubic-bezier(.4,2,.6,1)';
+                hero.style.opacity = 1;
+                hero.style.transform = 'translateY(0)';
+            }, 200);
+        });
+
+        // Product card hover effect (pulse)
+        document.querySelectorAll('.product-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.animate([
+                    { transform: 'scale(1)' },
+                    { transform: 'scale(1.04)' },
+                    { transform: 'scale(1)' }
+                ], {
+                    duration: 350,
+                    easing: 'ease'
+                });
+            });
+        });
+
+        // Newsletter form animation and fake submit
+        document.querySelector('.newsletter form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const btn = this.querySelector('button');
+            btn.textContent = 'Subscribed!';
+            btn.style.background = '#4caf50';
+            btn.style.color = '#fff';
+            setTimeout(() => {
+                btn.textContent = 'Subscribe';
+                btn.style.background = '#222';
+                btn.style.color = '#fff';
+                this.reset();
+            }, 2000);
+        });
+
+        // Category card click animation
+        document.querySelectorAll('.category-card').forEach(card => {
+            card.addEventListener('mousedown', () => {
+                card.style.transform = 'scale(0.97)';
+            });
+            card.addEventListener('mouseup', () => {
+                card.style.transform = '';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = '';
+            });
+        });
+
+        // Add to Cart button animation
+        document.querySelectorAll('.product-card button').forEach(btn => {
+            btn.addEventListener('click', function () {
+                this.textContent = 'Added!';
+                this.style.background = '#4caf50';
+                setTimeout(() => {
+                    this.textContent = 'Add to Cart';
+                    this.style.background = '#ff6f61';
+                }, 1200);
+            });
+        });
+    </script>
+</body>
+
+</html>
